@@ -60,9 +60,9 @@ public class TrackerUC {
 					usage(System.out);
 					System.exit(0);
 				}
-
+				Integer puerto = 80;
 				Integer portValue = (Integer)parser.getOptionValue(port,
-					Integer.valueOf(Tracker.DEFAULT_TRACKER_PORT));
+					puerto);
 
 				String[] otherArgs = parser.getRemainingArgs();
 
@@ -87,7 +87,7 @@ public class TrackerUC {
 				try {
 					Tracker t = new Tracker(new InetSocketAddress(portValue.intValue()));
 
-					File parent = new File("C:/Users/ANDRES M/Desktop/UC/TrackerUC/TrackerUC/announce");
+					File parent = new File("C:/Users/ANDRES/Desktop/TrackerUC/TrackerUC/announce");
 					for (File f : parent.listFiles(filter)) {
 						System.out.println("Loading torrent from " + f.getName());
 						t.announce(TrackedTorrent.load(f));
