@@ -19,7 +19,8 @@ import jargs.gnu.CmdLineParser;
 
 public class TrackerUC {
 	
-
+	
+		static Tracker t;
 
 		/**
 		 * Display program usage on the given {@link PrintStream}.
@@ -85,9 +86,9 @@ public class TrackerUC {
 				};
 
 				try {
-					Tracker t = new Tracker(new InetSocketAddress(portValue.intValue()));
+					t = new Tracker(new InetSocketAddress(portValue.intValue()));
 
-					File parent = new File("C:/Users/ANDRES/Desktop/TrackerUC/TrackerUC/announce");
+					File parent = new File("C:/Users/andre/Desktop/Andres/ProyectoUC/TrackerUC/TrackerUC/announce");
 					for (File f : parent.listFiles(filter)) {
 						System.out.println("Loading torrent from " + f.getName());
 						t.announce(TrackedTorrent.load(f));
